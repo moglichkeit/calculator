@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator {
+    background-color: antiquewhite;
+    border: solid black 2px;
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 50px;
+    width: 360px;
+}
+
+.screen {
+    padding: 10px 20px;
+    border: solid black 2px;
+    background-color: rgb(46, 46, 46);
+    border-radius: 5px;
+    text-align: right;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    word-wrap: break-word;
+    word-break: break-all;
+    box-shadow: inset 5px 5px 25px rgba(255, 255, 255, 0.25);
+    font-family: 'Press Start 2P', cursive;
+}
+
+.screen-current {
+    font-size: 40px;
+    color: #2df1ff;
+}
+
+.buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 10px;
+}
+
+.btn {
+    padding: 8px 0;
+    border: solid black 2px;
+    border-radius: 5px;
+    font-size: 40px;
+    font-family: 'Bungee', cursive;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+}
+
+.span-2 {
+    grid-column: span 2;
+}
+
+.btn:hover {
+    scale: 0.98;
+}
+
+.btn:active {
+    scale: 0.95;
+}
+
+.equal {
+    background-color: rgb(255, 174, 0);
+}
+
+.operation {
+    background-color: black;
+    color: white;
+}
