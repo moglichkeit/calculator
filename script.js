@@ -1,7 +1,7 @@
 let valueDisplay = '0';
 let lastDisplay = null;
 let operator = null;
-let a = null;
+let a = 0;
 let b = null;
 let decimal = false;
 
@@ -80,7 +80,11 @@ buttons.forEach(button => {
 
         if (button.dataset.decimal !== undefined && decimal === false) {
             decimal = true;
-            input('.')
+            if (valueDisplay === '0'){
+                input('0.');
+            } else {
+                input('.');
+            }
         }
 
         if (button.dataset.operator !== undefined) {
@@ -100,7 +104,10 @@ buttons.forEach(button => {
                 }
             } else {
                 if (b !== null) {
+                    currentDisplay = a + ' ' + operator + ' ' + b + ' =';
+                    document.getElementById('last-output').innerHTML = currentDisplay;
                     a = operate(a,b,operator);
+                    operator = button.dataset.operator;
                     b = null;
                     decimal = false;
                     popDisplay(a);
@@ -111,7 +118,6 @@ buttons.forEach(button => {
                     currentDisplay = a + ' ' + operator;
                     document.getElementById('last-output').innerHTML = currentDisplay;
                     valueDisplay = '0';
-                    
                 }
             }
         }
