@@ -1,4 +1,5 @@
 let valueDisplay = '0';
+let lastDisplay = null;
 let operator = null;
 let a = null;
 let b = null;
@@ -42,6 +43,8 @@ function clear() {
     a = null;
     b = null;
     operator = null;
+    currentDisplay = '';
+    document.getElementById('last-output').innerHTML = currentDisplay;
 }
 
 function clearEntry() {
@@ -50,7 +53,7 @@ function clearEntry() {
 }
 
 function popDisplay(num) {
-    document.getElementById('output').innerHTML = num;
+    document.getElementById('current-output').innerHTML = num;
 }
 
 function input(num) {
@@ -82,6 +85,8 @@ buttons.forEach(button => {
 
         if (button.dataset.operator !== undefined) {
                 if (button.dataset.operator === '=' && b !== null) {
+                currentDisplay = a + ' ' + operator + ' ' + b + ' =';
+                document.getElementById('last-output').innerHTML = currentDisplay;
                 a = operate(a,b,operator);
                 b = null;
                 decimal = false;
@@ -103,7 +108,10 @@ buttons.forEach(button => {
                 } else {
                     operator = button.dataset.operator;
                     decimal = false;
+                    currentDisplay = a + ' ' + operator;
+                    document.getElementById('last-output').innerHTML = currentDisplay;
                     valueDisplay = '0';
+                    
                 }
             }
         }
